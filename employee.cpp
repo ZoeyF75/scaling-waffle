@@ -70,6 +70,10 @@ class Employee:iEmployee {
     }
   }
 
+  virtual void Work() {
+    cout << Name << " is checking email, task backlog, performing tasks..." << endl;
+  }
+
 };
 
 class Developer: public Employee {
@@ -93,6 +97,10 @@ class Developer: public Employee {
   void FixBug() {
     cout << Name << " fixed bug using " << FavProgrammingLanguage << endl;
   }
+
+  void Work() {
+    cout << Name << " is writing " << FavProgrammingLanguage << " code." << endl;
+  }
 };
 
 class Teacher: public Employee {
@@ -115,6 +123,10 @@ class Teacher: public Employee {
   Teacher(string name, string company, int age, string subject): Employee(name, company, age)
   {
     setSubject(subject);
+  }
+
+  void Work() {
+    cout << Name << " is teaching " << Subject << "." << endl;
   }
 
 };
@@ -142,6 +154,15 @@ int main ()
   Teacher t = Teacher("Jack", "Cool School", 35, "History");
   t.PrepareLesson();
   t.AskForPromotion();
+
+  d.Work();
+  t.Work();
+
+  Employee* e1 = &d; //base class pointer
+  Employee* e2 = &t;
+
+  e1->Work();
+  e2->Work();
 
   return 0;
 }
