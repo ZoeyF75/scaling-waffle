@@ -72,7 +72,7 @@ class Employee:iEmployee {
 
 };
 
-class Developer: Employee {
+class Developer: public Employee {
   private:
     string FavProgrammingLanguage;
   
@@ -113,6 +113,7 @@ int main ()
 
   Developer d = Developer("Zoey", "noCompany:(", 21, "C++");
   d.FixBug();
+  d.AskForPromotion();
 
   return 0;
 }
