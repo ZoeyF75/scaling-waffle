@@ -87,12 +87,36 @@ class Developer: public Employee {
 
   Developer(string name, string company, int age, string fpl): Employee(name, company, age)
   {
-    FavProgrammingLanguage = fpl;
+    setFPL(fpl);
   }
 
   void FixBug() {
     cout << Name << " fixed bug using " << FavProgrammingLanguage << endl;
   }
+};
+
+class Teacher: public Employee {
+  private:
+  string Subject;
+
+  public:
+  void setSubject(string subject){
+    Subject = subject;
+  }
+
+  string getSubject() {
+    return Subject;
+  }
+
+  void PrepareLesson() {
+    cout << Name << " is preparing " << Subject << " lesson " << endl;
+  }
+
+  Teacher(string name, string company, int age, string subject): Employee(name, company, age)
+  {
+    setSubject(subject);
+  }
+
 };
 
 int main ()
@@ -114,6 +138,10 @@ int main ()
   Developer d = Developer("Zoey", "noCompany:(", 21, "C++");
   d.FixBug();
   d.AskForPromotion();
+
+  Teacher t = Teacher("Jack", "Cool School", 35, "History");
+  t.PrepareLesson();
+  t.AskForPromotion();
 
   return 0;
 }
