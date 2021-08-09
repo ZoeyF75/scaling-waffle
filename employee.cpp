@@ -26,7 +26,9 @@ class Employee {
   }
 
   void setAge(int age) {
-    Age = age;
+    if (age >= 18) {
+      Age = age;
+    }
   }
 
   int getAge() {
@@ -55,5 +57,7 @@ int main ()
   Employee employee2 = Employee("John", "Amazon", 35);
   employee2.IntroduceYourself();
 
+  employee2.setAge(17);
+  cout << employee2.getName() << " is " << employee2.getAge() << " years old." << endl;
   return 0;
 }
