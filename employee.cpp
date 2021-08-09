@@ -69,6 +69,29 @@ class Employee:iEmployee {
 
 };
 
+class Developer: Employee {
+  private:
+    string FavProgrammingLanguage;
+  
+  public:
+  void setFPL(string fpl) {
+    FavProgrammingLanguage = fpl;
+  }
+
+  string getFPL() {
+    return FavProgrammingLanguage;
+  }
+
+  Developer(string name, string company, int age, string fpl): Employee(name, company, age)
+  {
+    FavProgrammingLanguage = fpl;
+  }
+
+  void FixBug() {
+    cout << "Zoey fixed bug using " << FavProgrammingLanguage << endl;
+  }
+};
+
 int main ()
 {
   Employee employee1 = Employee("Saldina", "YT-CodeBeauty", 25);
@@ -84,5 +107,9 @@ int main ()
   employee2.AskForPromotion();
 
   cout << employee2.getName() << " is " << employee2.getAge() << " years old." << endl;
+
+  Developer d = Developer("Zoey", "noCompany:(", 21, "C++");
+  d.FixBug();
+
   return 0;
 }
