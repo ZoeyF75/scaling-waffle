@@ -13,9 +13,12 @@ class iEmployee { //interface
 
 class Employee:iEmployee {
   private: //not required as its priv by default
-  string Name; //attributes
+  //attributes
   string Company;
   int Age;
+
+  protected:
+  string Name;
 
   public:
   void setName(string name) {
@@ -88,7 +91,7 @@ class Developer: Employee {
   }
 
   void FixBug() {
-    cout << "Zoey fixed bug using " << FavProgrammingLanguage << endl;
+    cout << Name << " fixed bug using " << FavProgrammingLanguage << endl;
   }
 };
 
